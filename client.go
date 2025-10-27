@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
-	"net/url"
 	"time"
 
 	"github.com/google/go-querystring/query"
@@ -409,13 +408,12 @@ func executeCommon[R any](ctx context.Context, c *Client, in commonExchange[R]) 
 		return nil, errors.Wrap(err, "create request")
 	}
 
-	urlQuery := make(url.Values)
 	reqBody.Set("origin", "web,ib5,platform")
 	if sessionID != "" {
 		reqBody.Set("sessionid", sessionID)
 	}
 
-	httpReq.URL.RawQuery = urlQuery.Encode()
+	httpReq.URL.RawQuery = reqBody.Encode()
 	httpReq.Header.Set("Content-Type", "application/json")
 
 	httpResp, err := c.httpClient.Do(httpReq)
