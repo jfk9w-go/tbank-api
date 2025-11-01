@@ -5,8 +5,6 @@ import (
 	"encoding/json"
 	"io"
 	"net/http"
-	"net/url"
-	"strings"
 	"time"
 
 	"github.com/google/go-querystring/query"
@@ -404,24 +402,19 @@ func executeCommon[R any](ctx context.Context, c *Client, in commonExchange[R]) 
 		return nil, errors.Wrap(err, "encode form values")
 	}
 
-	method := http.MethodPost
-	if _, ok := any(in).(clientOfferEssencesIn); ok {
-		method = http.MethodGet
-	}
-
-	httpReq, err := http.NewRequestWithContext(ctx, method, baseApiURL+in.path(), strings.NewReader(reqBody.Encode()))
+	method := http.MethodGet
+	httpReq, err := http.NewRequestWithContext(ctx, method, baseApiURL+in.path(), nil)
 	if err != nil {
 		return nil, errors.Wrap(err, "create request")
 	}
 
-	urlQuery := make(url.Values)
-	urlQuery.Set("origin", "web,ib5,platform")
+	reqBody.Set("origin", "web,ib5,platform")
 	if sessionID != "" {
-		urlQuery.Set("sessionid", sessionID)
+		reqBody.Set("sessionid", sessionID)
 	}
 
-	httpReq.URL.RawQuery = urlQuery.Encode()
-	httpReq.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+	httpReq.URL.RawQuery = reqBody.Encode()
+	httpReq.Header.Set("Content-Type", "application/json")
 
 	httpResp, err := c.httpClient.Do(httpReq)
 	if err != nil {
