@@ -52,8 +52,8 @@ github.com/googleapis/gax-go/v2 v2.0.4/go.mod h1:0Wqv26UfaUD9n4G6kQubkQ+KchISgw+
 github.com/googleapis/gax-go/v2 v2.0.5/go.mod h1:DWXyrwAJ9X0FpwwEdw+IPEYBICEFu5mhpdKc/us6bOk=
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
-github.com/jfk9w-go/based v1.0.20 h1:jsEC7d1Z9D4o1RBs82b4Zb0BoAZGoYvJj4OwGW6ci3M=
-github.com/jfk9w-go/based v1.0.20/go.mod h1:4lDFUB09b3TmSo8DMPP0Mm1sQcnrRgRq2bE001qx8cg=
+github.com/jfk9w-go/based v1.0.21 h1:z3f3H3xRpf4AxXvmvxROHPfk47tkNEbfPg9DK85Ih9o=
+github.com/jfk9w-go/based v1.0.21/go.mod h1:kDDGB2Za85zzx//6mbJZyLS7OAcMzx149R4/roXqvo4=
 github.com/jstemmer/go-junit-report v0.0.0-20190106144839-af01ea7f8024/go.mod h1:6v2b51hI/fHJwM22ozAgKL4VKDeJcHhJFhtBdhmNjmU=
 github.com/leodido/go-urn v1.4.0 h1:WT9HwE9SGECu3lg4d/dIA+jxlljEa1/ffXKmRjqdmIQ=
 github.com/leodido/go-urn v1.4.0/go.mod h1:bvxc+MVxLKB4z00jd1z+Dvzr47oO32F/QSNjSBOlFxI=
